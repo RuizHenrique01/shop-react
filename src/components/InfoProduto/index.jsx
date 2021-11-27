@@ -29,14 +29,17 @@ const InfoProduto = ({ handleClickClose, produto }) => {
 
     async function updateProject() {
         if (nome && preco) {
+            try {
+                await api.put(`/produtos/${produto.id}`, {
+                    nome,
+                    descricao,
+                    preco
+                });
+                handleClickClose();
+            } catch (err) {
+                alert("Error: Por favor verifique se já existe um produto com esse nome")
+            }
 
-            await api.put(`/produtos/${produto.id}`, {
-                nome,
-                descricao,
-                preco
-            });
-
-            handleClickClose();
         } else {
             setUnValidated(true);
         }

@@ -30,13 +30,17 @@ const AddProduto = ({ handleClickClose }) => {
     async function createProduto() {
         if (nome && preco) {
 
-            await api.post("/produtos", {
-                nome,
-                descricao,
-                preco
-            });
+            try {
+                await api.post("/produtos", {
+                    nome,
+                    descricao,
+                    preco
+                });
+                handleClickClose();
+            } catch (err) {
+                alert("Error: Por favor verifique se já existe um produto com esse nome")
+            }
 
-            handleClickClose();
         } else {
             setUnValidated(true);
         }
