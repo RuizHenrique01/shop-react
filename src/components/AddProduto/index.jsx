@@ -5,6 +5,7 @@ import Input from '../Input';
 import ButtonCreate from '../ButtonCreate';
 import ErrorMessage from '../ErrorMessage';
 import './index.css';
+import { api } from '../../services/api';
 
 const AddProduto = ({ handleClickClose }) => {
 
@@ -26,8 +27,15 @@ const AddProduto = ({ handleClickClose }) => {
         setPreco(e.target.value);
     }
 
-    async function createProject() {
+    async function createProduto() {
         if (nome && preco) {
+
+            await api.post("/produtos", {
+                nome,
+                descricao,
+                preco
+            });
+
             handleClickClose();
         } else {
             setUnValidated(true);
@@ -67,7 +75,7 @@ const AddProduto = ({ handleClickClose }) => {
             {isUnValidated && <ErrorMessage>Campo preço é obrigatório</ErrorMessage>}
 
             <div className="add-produto-button">
-                <ButtonCreate type='button' handleClick={createProject}>
+                <ButtonCreate type='button' handleClick={createProduto}>
                     Criar
                 </ButtonCreate>
             </div>

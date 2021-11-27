@@ -4,13 +4,14 @@ import Box from '../Box';
 import Input from '../Input';
 import ButtonCreate from '../ButtonCreate';
 import ErrorMessage from '../ErrorMessage';
+import { api } from '../../services/api';
 import './index.css';
 
-const InfoProduto = ({ handleClickClose }) => {
+const InfoProduto = ({ handleClickClose, produto }) => {
 
-    const [nome, setNome] = useState('');
-    const [descricao, setDescricao] = useState('');
-    const [preco, setPreco] = useState('');
+    const [nome, setNome] = useState(produto.nome);
+    const [descricao, setDescricao] = useState(produto.descricao);
+    const [preco, setPreco] = useState(produto.preco);
     const [isUnValidated, setUnValidated] = useState(false);
 
     function handleInputName(e) {
@@ -26,8 +27,15 @@ const InfoProduto = ({ handleClickClose }) => {
         setPreco(e.target.value);
     }
 
-    async function createProject() {
+    async function updateProject() {
         if (nome && preco) {
+
+            await api.put(`/produtos/${produto.id}`, {
+                nome,
+                descricao,
+                preco
+            });
+
             handleClickClose();
         } else {
             setUnValidated(true);
@@ -47,7 +55,7 @@ const InfoProduto = ({ handleClickClose }) => {
             <label className="info-produto-label">Nome:</label>
             <div className="info-produto-input">
                 <Input type="text" name="nome" onChange={handleInputName}
-                    required={true} autoComplete="off" />
+                    required={true} autoComplete="off" value={nome} />
             </div>
 
             {isUnValidated && <ErrorMessage>Campo nome é obrigatório</ErrorMessage>}
@@ -55,19 +63,19 @@ const InfoProduto = ({ handleClickClose }) => {
             <label className="info-produto-label">Descrição:</label>
             <div className="info-produto-input">
                 <Input type="text" name="descricao"
-                    onChange={handleInputDescription} autoComplete="off" />
+                    onChange={handleInputDescription} autoComplete="off" value={descricao} />
             </div>
 
             <label className="info-produto-label">Preço:</label>
             <div className="info-produto-input">
                 <Input type="text" name="nome" onChange={handleInputPrice}
-                    required={true} autoComplete="off" />
+                    required={true} autoComplete="off" value={preco} />
             </div>
 
             {isUnValidated && <ErrorMessage>Campo preço é obrigatório</ErrorMessage>}
 
             <div className="info-produto-button">
-                <ButtonCreate type='button' handleClick={createProject}>
+                <ButtonCreate type='button' handleClick={updateProject}>
                     Salvar
                 </ButtonCreate>
             </div>

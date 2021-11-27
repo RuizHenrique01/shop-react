@@ -1,0 +1,42 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\USUARIO\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add axios
+
+PATH: 
+  C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Brackets\command;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\ProgramData\chocolatey\bin;;C:\ProgramData\chocolatey\lib\Elixir/bin;C:\ProgramData\chocolatey\lib\Elixir/bin;C:\Users\USUARIO\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\USUARIO\AppData\Local\Programs\Python\Python39\;C:\Users\USUARIO\AppData\Local\Microsoft\WindowsApps;C:\Program Files\heroku\bin;C:\Users\USUARIO\AppData\Roaming\npm;C:\Users\USUARIO\AppData\Local\Programs\Microsoft VS Code\bin;C:\Flutter\flutter\bin;C:\Users\USUARIO\Documents\forge-distribution-3.9.7.Final\bin;C:\MinGW\bin;
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  15.9.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'C:\Users\USUARIO\Documents\APIs\shop-react\node_modules\esbuild-windows-64\esbuild.exe'
+
+npm manifest: 
+  {
+    "name": "shop-react",
+    "version": "0.0.0",
+    "scripts": {
+      "dev": "vite",
+      "build": "vite build",
+      "serve": "vite preview"
+    },
+    "dependencies": {
+      "react": "^17.0.0",
+      "react-dom": "^17.0.0"
+    },
+    "devDependencies": {
+      "@vitejs/plugin-react": "^1.0.0",
+      "vite": "^2.6.4"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

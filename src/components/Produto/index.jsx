@@ -5,7 +5,7 @@ import './index.css'
 import DeleteProduto from '../DeleteProduto';
 import InfoProduto from '../InfoProduto';
 
-const Produto = ({ nome, preco }) => {
+const Produto = ({ produto }) => {
 
     const [isBoxDeleteProdutoOpen, setIsBoxDeleteProdutoOpen] = useState(false);
 
@@ -23,11 +23,11 @@ const Produto = ({ nome, preco }) => {
         <>
             <div className="produto-conteiner">
                 <h3 className="produto-title">
-                    {nome}
+                    {produto.nome}
                 </h3>
 
                 <h3 className="produto-preco">
-                    {"R$ " + preco}
+                    {"R$ " + produto.preco}
                 </h3>
 
                 <button type='button' className="produto-button" onClick={handleOpenBoxInfoProduto}>
@@ -39,9 +39,9 @@ const Produto = ({ nome, preco }) => {
                 </button>
             </div>
 
-            {isBoxIfonProdutoOpen && <InfoProduto handleClickClose={handleOpenBoxInfoProduto} />}
+            {isBoxIfonProdutoOpen && <InfoProduto handleClickClose={handleOpenBoxInfoProduto} produto={produto} />}
 
-            {isBoxDeleteProdutoOpen && <DeleteProduto handleClickClose={handleOpenBoxDeleteProduto} />}
+            {isBoxDeleteProdutoOpen && <DeleteProduto handleClickClose={handleOpenBoxDeleteProduto} produto={produto} />}
         </>
     );
 };
