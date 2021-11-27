@@ -10,7 +10,7 @@ const Compras = () => {
     return (
         <>
             <main className="compras-main">
-                <ButtonCreate handleClick={handleOpenBox}>
+                <ButtonCreate >
                     + Nova Compra
                 </ButtonCreate>
 
