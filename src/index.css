@@ -1,0 +1,23 @@
+:root {
+  --background-color: #121212;
+  --surface-color: #181818;
+  --primary-color: #3700b3;
+  --primary-variant-color: #bb86fc;
+  --secondary-color: #03dac5;
+  --error-color: #b00020;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
