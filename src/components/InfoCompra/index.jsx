@@ -8,7 +8,7 @@ const InfoCompra = ({ compra, index, handleClickClose }) => {
     function dataFormat(data) {
         const newData = new Date(data);
 
-        const date = `${newData.getDate()}-${newData.getMonth()}-${newData.getFullYear()}`;
+        const date = `${newData.getDate()}-${newData.getMonth() + 1}-${newData.getFullYear()}`;
         const hours = `${newData.getHours()}:${newData.getMinutes() < 10 ? "0" + newData.getMinutes() : newData.getMinutes()}`
 
         return date + " " + hours;

@@ -18,6 +18,7 @@ const Compras = () => {
         async function getCompras() {
 
             await api.get("/compras").then(response => {
+                response.data.sort((a, b) => new Date(a.data_criacao).getTime() - new Date(b.data_criacao).getTime())
                 setCompras(response.data);
             });
         }
@@ -31,7 +32,6 @@ const Compras = () => {
                 <ButtonCreate handleClick={handleIsBoxInfoComprasOpen}>
                     + Nova Compra
                 </ButtonCreate>
-
                 {
                     compras.map((result, index) => {
                         return <Compra key={result.id} compra={result} index={index} />
