@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import AddCompra from "../../components/AddCompra";
 import ButtonCreate from '../../components/ButtonCreate';
 import Compra from "../../components/Compra";
 import { api } from '../../services/api';
@@ -7,6 +8,11 @@ import './index.css';
 const Compras = () => {
 
     const [compras, setCompras] = useState([]);
+    const [isBoxInfoComprasOpen, setIsBoxInfoComprasOpen] = useState(false);
+
+    function handleIsBoxInfoComprasOpen() {
+        setIsBoxInfoComprasOpen(!isBoxInfoComprasOpen);
+    }
 
     useEffect(() => {
         async function getCompras() {
@@ -22,7 +28,7 @@ const Compras = () => {
     return (
         <>
             <main className="compras-main">
-                <ButtonCreate >
+                <ButtonCreate handleClick={handleIsBoxInfoComprasOpen}>
                     + Nova Compra
                 </ButtonCreate>
 
@@ -32,6 +38,8 @@ const Compras = () => {
                     })
                 }
             </main>
+
+            {isBoxInfoComprasOpen && <AddCompra handleClickClose={handleIsBoxInfoComprasOpen} />}
         </>
     );
 }

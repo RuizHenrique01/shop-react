@@ -29,14 +29,14 @@
   background-color: #242424;
   border-radius: 5px;
   padding: 0.5em;
+  overflow: hidden;
+  overflow-y: auto;
   box-sizing: border-box;
 }
 
 .info-produtos-informacoes {
   display: flex;
   justify-content: space-between;
-  overflow: hidden;
-  overflow-y: auto;
 }
 
 .info-produtos-title {
