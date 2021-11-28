@@ -4,6 +4,16 @@ import crossImage from '../../assets/cross.svg';
 import './index.css'
 
 const InfoCompra = ({ compra, index, handleClickClose }) => {
+
+    function dataFormat(data) {
+        const newData = new Date(data);
+
+        const date = `${newData.getDate()}-${newData.getMonth()}-${newData.getFullYear()}`;
+        const hours = `${newData.getHours()}:${newData.getMinutes() < 10 ? "0" + newData.getMinutes() : newData.getMinutes()}`
+
+        return date + " " + hours;
+    }
+
     return (
         <Box handleClick={handleClickClose}>
             <button className="box-close-button" onClick={() => handleClickClose()}>
@@ -11,6 +21,8 @@ const InfoCompra = ({ compra, index, handleClickClose }) => {
             </button>
 
             <h3 className="info-compra-title">{`Compra ${index + 1}`}</h3>
+
+            <p className="info-compra-informacoes">{`data: ${dataFormat(compra.data_criacao)}`}</p>
 
             <p className="info-compra-informacoes">{`status: ${compra.status}`}</p>
 
